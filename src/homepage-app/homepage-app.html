@@ -1,0 +1,63 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="homepage-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      div {
+        font-family: 'Roboto', sans-serif;
+        padding: 8px;
+      }
+      h1 {
+        padding-left: 12px;
+      }
+      paper-icon-button {
+        width: 256px;
+        height: 256px;
+      }
+    </style>
+    <div>
+      <div>
+        <h1>Justin Uberti</h1>
+      </div>
+      <div>
+        <xa href="http://t.juberti.com" tabindex="-1"></xa>
+          <paper-icon-button src="/images/twitter.jpg"></paper-icon-button>
+
+        <a href="http://ig.juberti.com" tabindex="-1">
+          <paper-icon-button src="/images/instagram.png"></paper-icon-button>
+        </a>
+      </div>
+      <div>
+        <a href="http://gh.juberti.com" xtabindex="-1">
+          <paper-icon-button src="/images/github.png"> </paper-icon-button>
+        </a>
+        <a href="http://in.juberti.com" tabindex="-1">
+          <paper-icon-button src="/images/linkedin.png"></paper-icon-button>
+        </a>
+      </div>
+      <!-- youtube -->
+      <!-- ietf -->
+      <!-- w3c -->
+      <!-- duo -->
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'homepage-app',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'homepage-app',
+        },
+      },
+
+    });
+  </script>
+</dom-module>

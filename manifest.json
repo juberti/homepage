@@ -1,0 +1,7 @@
+{
+  "name": "homepage",
+  "short_name": "homepage",
+  "description": "juberti&#39;s homepage",
+  "start_url": "/",
+  "display": "standalone"
+}
