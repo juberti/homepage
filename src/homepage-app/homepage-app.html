@@ -14,21 +14,25 @@
       div {
         font-family: 'Roboto', sans-serif;
       }
-      .container {
+      .main {
+        max-width: 576px;
+        margin-left: auto;
+        margin-right: auto;
       }
       app-header {
+        max-width: 576px;
         position: fixed;
         top: 0;
-        left: 0;
-        right: 0;
+        width: 100%;
         z-index: 1;
         color: black;
         background-color: white;
       }
       .title {
         font-size: 24px;
-        padding: 12px;
-        text-align: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 8px;
       }
       a {
         text-decoration: none;
@@ -55,7 +59,7 @@
         padding: 12px;
       }
     </style>
-    <div class="container">
+    <div class="main">
       <app-header fixed effects="waterfall">
         <app-toolbar>
           <div class="title">
