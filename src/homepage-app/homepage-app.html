@@ -1,5 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 <dom-module id="homepage-app">
   <template>
@@ -9,40 +11,65 @@
       }
       div {
         font-family: 'Roboto', sans-serif;
-        padding: 8px;
       }
-      h1 {
-        padding-left: 12px;
+      paper-header-panel > div {
+        background-color: white;
+        color: black;
+        font-size: 24px;
+        padding: 12px;
+        text-align: center;
       }
-      paper-icon-button {
-        width: 256px;
-        height: 256px;
+      a {
+        text-decoration: none;
+      }
+      iron-list {
+        margin-top: 24px;
+        height: 100vh;
+      }
+      .container {
+        padding: 4px;
+      }
+      .image > img {
+        width: 128px;
+        height: 128px;
+        margin: 0px;
+      }
+      .caption {
+        position: relative;
+        text-align: center;
+        background: white;
+        color: black;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 12px;
       }
     </style>
-    <div>
-      <div>
-        <h1>Justin Uberti</h1>
-      </div>
-      <div>
-        <a href="http://t.juberti.com" tabindex="-1">
-          <paper-icon-button src="../../images/twitter.jpg"></paper-icon-button>
-        </a>
-        <a href="http://ig.juberti.com" tabindex="-1">
-          <paper-icon-button src="../../images/instagram.png"></paper-icon-button>
-        </a>
-      </div>
-      <div>
-        <a href="http://gh.juberti.com" xtabindex="-1">
-          <paper-icon-button src="../../images/github.png"> </paper-icon-button>
-        </a>
-        <a href="http://li.juberti.com" tabindex="-1">
-          <paper-icon-button src="../../images/linkedin.png"></paper-icon-button>
-        </a>
-      </div>
+    <div class="layout vertical center">
+      <paper-header-panel>
+        <div class="paper-header layout horizontal">
+          <span class="title">
+            Justin Uberti
+          </span>
+        </div>
+      </paper-header-panel>
+      <iron-list items="[[items]]" grid>
+        <template>
+          <div class="container">
+            <a href="http://[[item.prefix]].juberti.com" tabindex="-1" target="_blank">
+              <div class="image">
+                <img src="../../images/[[item.img]]" width="128" height="128">
+              </div>
+              <div class="caption">
+                [[item.caption]]
+              </div>
+            </a>
+          </div>
+        </template>
       <!-- youtube -->
       <!-- ietf -->
       <!-- w3c -->
       <!-- duo -->
+      </iron-list>
     </div>
   </template>
 
@@ -56,6 +83,14 @@
           type: String,
           value: 'homepage-app',
         },
+        items: {
+          value: [
+            { prefix: 't',  img: 'twitter.jpg', caption: 'Twitter' },
+            { prefix: 'ig', img: 'instagram.png', caption: 'Instagram' },
+            { prefix: 'li', img: 'linkedin.png', caption: 'LinkedIn' },
+            { prefix: 'gh', img: 'github.png', caption: 'GitHub' },
+          ]
+        }
       },
 
     });
