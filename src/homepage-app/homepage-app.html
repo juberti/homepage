@@ -1,7 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-list/iron-list.html">
-<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 <dom-module id="homepage-app">
   <template>
@@ -12,9 +14,18 @@
       div {
         font-family: 'Roboto', sans-serif;
       }
-      paper-header-panel > div {
-        background-color: white;
+      .container {
+      }
+      app-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
         color: black;
+        background-color: white;
+      }
+      .title {
         font-size: 24px;
         padding: 12px;
         text-align: center;
@@ -23,7 +34,7 @@
         text-decoration: none;
       }
       iron-list {
-        margin-top: 24px;
+        margin-top: 84px;
         height: 100vh;
       }
       .container {
@@ -44,18 +55,18 @@
         padding: 12px;
       }
     </style>
-    <div class="layout vertical center">
-      <paper-header-panel>
-        <div class="paper-header layout horizontal">
-          <span class="title">
+    <div class="container">
+      <app-header fixed effects="waterfall">
+        <app-toolbar>
+          <div class="title">
             Justin Uberti
-          </span>
-        </div>
-      </paper-header-panel>
+          </div>
+        </app-toolbar>
+      </app-header>
       <iron-list items="[[items]]" grid>
         <template>
           <div class="container">
-            <a href="http://[[item.prefix]].juberti.com" tabindex="-1" target="_blank">
+            <a href="[[item.href]]" target="_blank">
               <div class="image">
                 <img src="images/[[item.img]]" width="128" height="128">
               </div>
@@ -85,10 +96,11 @@
         },
         items: {
           value: [
-            { prefix: 't',  img: 'twitter.jpg', caption: 'Twitter' },
-            { prefix: 'ig', img: 'instagram.png', caption: 'Instagram' },
-            { prefix: 'li', img: 'linkedin.png', caption: 'LinkedIn' },
-            { prefix: 'gh', img: 'github.png', caption: 'GitHub' },
+            { href: 'https://twitter.com/juberti',  img: 'twitter.jpg', caption: 'Twitter' },
+            { href: 'https://www.instagram.com/jubertix', img: 'instagram.png', caption: 'Instagram' },
+            //{ href: 'https://youtube.com/juberti', img: 'instagram.png', caption: 'YouTube' },
+            { href: 'https://www.linkedin.com/in/juberti', img: 'linkedin.png', caption: 'LinkedIn' },
+            { href: 'https://github.com/juberti', img: 'github.png', caption: 'GitHub' },
           ]
         }
       },
